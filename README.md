@@ -22,7 +22,7 @@ $ knife client list
 $ aws s3 ls
 ...
 $ bog personal					# Switch to another profile
-$ bog personal exec knife environment show	# Execute a command in the context of a profile and revert
+$ bog myclient exec knife environment show	# Execute a command in the context of a profile and revert
 ...
 ```
 ## How it works

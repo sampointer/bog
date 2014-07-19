@@ -1,5 +1,5 @@
 require "bog/version"
+require 'bog/profile'
 
 module Bog
-  # Your code goes here...
 end

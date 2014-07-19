@@ -1,3 +1,23 @@
 #!/usr/bin/env ruby
 
 require 'bog'
+require 'slop'
+
+@options = Slop.parse(strict: true) do
+  banner 'Usage: bog PROFILE [COMMAND] [options]'
+  on 'h', 'help', 'Display this message'
+end
+
+if @options.help?
+  puts @options
+  exit 0
+end
+
+profile = ARGV[0].downcase
+command = ARGV[1].downcase
+
+if command
+  Object.const_get('Bog').const_get('Command').const_get(command.capitalize).execute(Bog::Profile.find(profile.to_sym), @options)
+else
+  Bog::Profile.switch_to(profile.to_sym)
+end

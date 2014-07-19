@@ -6,14 +6,8 @@ module Bog
         profile_path = File.join(File.expand_path('~/.bog'), 'profiles', profile.to_s)
         Dir.mkdir(profile_path) unless File.directory?(profile_path)
 
-        options.each do |option|
-          case option
-          when :aws
-            Bog::Initializer::AWS.new(Bog::Profile.find(profile), options)
-          when :chef
-            Bog::Initializer::Chef.new(Bog::Profile.find(profile), options)
-          end
-        end
+        Bog::Initializer::AWS.new(Bog::Profile.find(profile), options) if options.aws?
+        Bog::Initializer::Chef.new(Bog::Profile.find(profile), options) if options.chef?
       end
 
       private

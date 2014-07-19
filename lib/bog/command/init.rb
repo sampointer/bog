@@ -1,3 +1,5 @@
+require 'bog/initializer'
+
 module Bog
   class Command
     class Init
@@ -8,6 +10,7 @@ module Bog
 
         Bog::Initializer::AWS.new(Bog::Profile.find(profile), options) if options.aws?
         Bog::Initializer::Chef.new(Bog::Profile.find(profile), options) if options.chef?
+
       end
 
       private

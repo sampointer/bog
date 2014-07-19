@@ -6,6 +6,8 @@ require 'slop'
 @options = Slop.parse(strict: true) do
   banner 'Usage: bog PROFILE [COMMAND] [options]'
   on 'h', 'help', 'Display this message'
+  on 'a', 'aws=', 'When passed to the \'init\' subcommand, prompt for AWS credentials'
+  on 'c', 'chef=', 'When passed to the \'init\' subcommand, prompt for Chef credentials'
 end
 
 if @options.help?

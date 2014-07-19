@@ -9,9 +9,9 @@ module Bog
         options.each do |option|
           case option
           when :aws
-            Bog::Initializer::AWS.new(options)
+            Bog::Initializer::AWS.new(Bog::Profile.find(profile), options)
           when :chef
-            Bog::Initializer::Chef.new(options)
+            Bog::Initializer::Chef.new(Bog::Profile.find(profile), options)
           end
         end
       end

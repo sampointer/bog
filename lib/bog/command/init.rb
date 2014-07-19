@@ -3,7 +3,8 @@ module Bog
     class Init
       def self.execute(profile, options)
         create_skel
-        File.mkdir(profile.to_s) unless File.directory?(profile.to_s)
+        profile_path = File.join(File.expand_path('~/.bog'), 'profiles', profile.to_s)
+        Dir.mkdir(profile_path) unless File.directory?(profile_path)
       end
 
       private
@@ -11,8 +12,8 @@ module Bog
       def self.create_skel
         bog_root = File.expand_path('~/.bog')
         profiles = File.join(bog_root, 'profiles')
-        File.mkdir(bog_root) unless File.exists?(bog_root)
-        File.mkdir(profiles) unless File.exists?(profiles)
+        Dir.mkdir(bog_root) unless File.exists?(bog_root)
+        Dir.mkdir(profiles) unless File.exists?(profiles)
       end
     end
   end

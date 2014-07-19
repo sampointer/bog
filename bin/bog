@@ -14,7 +14,7 @@ if @options.help?
 end
 
 profile = ARGV[0].downcase
-command = ARGV[1].downcase
+command = ARGV[1].downcase if ARGV[1]
 
 if command
   Object.const_get('Bog').const_get('Command').const_get(command.capitalize).execute(Bog::Profile.find(profile.to_sym), @options)

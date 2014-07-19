@@ -6,10 +6,15 @@ A tool for managing cloud API and configuration management credentials. rbenv fo
 
 It is brought to you by the folks at [OpsUnit][1].
 
+## Introduction
+In a modern operations team it is common to have many different sets of credentials and dotfile configurations.
+You may have multiple clients, or may split your environments between EC2 accounts. `bog` allows you to easily
+work with collections of dotfile configurations and to swap between those sets.
+
 ## Example
 ```bash
-$ bog init myclient  --aws --chef	# Configure ~/.bog with stubs for AWS and Chef under profile 'myclient'
-$ bog init myclient --aws --prompt	# Configure with AWS stubs and prompt for credentials
+$ bog myclient init --aws --chef	# Configure ~/.bog with stubs for AWS and Chef under profile 'myclient'
+$ bog myclient init --aws --prompt	# Configure with AWS stubs and prompt for credentials
 Enter your Amazon Secrect Access Key:
 ...
 $ bog myclient					# Switch to profile 'myclient'
@@ -41,18 +46,6 @@ repointing that symlink will not cause the directories under `$HOME` to be repoi
 
 `bog profilename exec command` will swap the dot directories for the profile given into place, execute the command, and then
 return to the previous state (`~/.bog/current` is not repointed during this).
-
-## Plugins
-`bog` includes a plugin system to enable you to extend it. You are very much encouraged to contribute plugins back to the project
-by submitting a pull request against the gem.
-
-The current default plugins are:
-
-* `chef`: manage configuration in `~/.chef`, including keys, validators and `knife.rb`
-* `ssh`: manage `~/.ssh`
-* `aws`: manage configuration in `~/.aws/config`
-
-If you'd like to write your own you can place them in any directory structure you choose under `~/.bog/plugins`.
 
 ## Why another dotfile manager
 There are plenty out there. `bog` aims to fit a modern operational workflow and toolset.

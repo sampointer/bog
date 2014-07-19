@@ -5,6 +5,15 @@ module Bog
         create_skel
         profile_path = File.join(File.expand_path('~/.bog'), 'profiles', profile.to_s)
         Dir.mkdir(profile_path) unless File.directory?(profile_path)
+
+        options.each do |option|
+          case option
+          when :aws
+            Bog::Initializer::AWS.new(options)
+          when :chef
+            Bog::Initializer::Chef.new(options)
+          end
+        end
       end
 
       private

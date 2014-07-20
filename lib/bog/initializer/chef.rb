@@ -1,6 +1,6 @@
 module Bog
   class Initializer
-    class Chef
+    class Chef < Initializer
       def initialize(profile, options)
       end
     end

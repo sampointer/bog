@@ -7,7 +7,7 @@ module Bog
 
     def get_input(text)
       puts text
-      return gets.chomp
+      return $stdin.gets.chomp
     end
   end
 end

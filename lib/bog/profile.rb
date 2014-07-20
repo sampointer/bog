@@ -4,13 +4,14 @@ require 'pathname'
 module Bog
   class Profile
     attr_accessor :configurations
-    attr_reader :profile_name
+    attr_reader :configurations, :profile_name, :path
 
     UNWANTED_ENTRIES = %w( . .. )
 
     def initialize(options)
       @configurations = options[:configurations]
       @profile_name = options[:profile_name]
+      @path = options[:path]
     end
 
     def self.switch_to(profile)
@@ -29,7 +30,7 @@ module Bog
     def self.load(profile)
       configurations = Dir.entries(profile_root(profile)).delete_if {|e| Bog::Profile::UNWANTED_ENTRIES.include?(e)}
       raise Bog::Profile::Exception::NotPopulated unless configurations.size > 0
-      return Bog::Profile.new({:configurations => configurations, :profile_name => profile})
+      return Bog::Profile.new({:configurations => configurations, :profile_name => profile, :path => profile_root(profile)})
     end
 
     def make_current

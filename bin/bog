@@ -23,7 +23,13 @@ if command
   when 'init'
     Object.const_get('Bog').const_get('Command').const_get(command.capitalize).execute(profile, @options)
   else
-    Object.const_get('Bog').const_get('Command').const_get(command.capitalize).execute(Bog::Profile.find(profile.to_sym), @options)
+    begin
+      Object.const_get('Bog').const_get('Command').const_get(command.capitalize).execute(Bog::Profile.find(profile.to_sym), @options)
+    rescue NameError
+      puts "#{command} is not a valid command"
+      puts @options
+      exit 1
+    end
   end
 else
   Bog::Profile.switch_to(profile.to_sym)

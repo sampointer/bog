@@ -3,6 +3,9 @@
 require 'bog'
 require 'slop'
 
+profile = ARGV[0].downcase
+command = ARGV[1].downcase if ARGV[1]
+
 @options = Slop.parse(strict: true) do
   banner 'Usage: bog PROFILE [COMMAND] [options]'
   on 'h', 'help', 'Display this message'
@@ -14,9 +17,6 @@ if @options.help?
   puts @options
   exit 0
 end
-
-profile = ARGV[0].downcase
-command = ARGV[1].downcase if ARGV[1]
 
 if command
   case command

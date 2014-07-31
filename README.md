@@ -1,4 +1,4 @@
-# bog
+# bog [![Build Status](https://travis-ci.org/opsunit/bog.svg?branch=master)](https://travis-ci.org/opsunit/bog)
 
 ![OpsUnit Logo][99]
 

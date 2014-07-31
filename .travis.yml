@@ -10,5 +10,6 @@ deploy:
   gem: knife-stencil
   on:
     tags: true
+    all_branches: true
     repo: opsunit/bog
     ruby: 1.9.3

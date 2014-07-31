@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["sam.pointer@opsunit.com"]
   spec.summary       = %q{A tool for managing cloud API and configuration management credentials.}
   spec.description   = %q{A tool for managing cloud API and configuration management credentials. rbenv for dotfiles.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/opsunit/bog"
   spec.license       = "GPL3"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rspec", "~> 3.0"
 
-  spec.add_dependency "slop"
+  spec.add_dependency "slop", "~> 3.4"
 end

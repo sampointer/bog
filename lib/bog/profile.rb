@@ -29,7 +29,6 @@ module Bog
 
     def self.load(profile)
       configurations = Dir.entries(profile_root(profile)).delete_if {|e| Bog::Profile::UNWANTED_ENTRIES.include?(e)}
-      raise Bog::Profile::Exception::NotPopulated unless configurations.size > 0
       return Bog::Profile.new({:configurations => configurations, :profile_name => profile, :path => profile_root(profile)})
     end
 

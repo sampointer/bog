@@ -6,16 +6,20 @@ require 'slop'
 profile = ARGV[0].downcase
 command = ARGV[1].downcase if ARGV[1]
 
-@options = Slop.parse(strict: true) do
-  banner 'Usage: bog PROFILE [COMMAND] [options]'
-  on 'h', 'help', 'Display this message'
-  on 'a', 'aws', 'When passed to the \'init\' subcommand, prompt for AWS credentials'
-  on 'c', 'chef', 'When passed to the \'init\' subcommand, prompt for Chef credentials'
-end
+unless command == 'exec' 
+  @options = Slop.parse(strict: true) do
+    banner 'Usage: bog PROFILE [COMMAND] [options]'
+    on 'h', 'help', 'Display this message'
+    on 'a', 'aws', 'When passed to the \'init\' subcommand, prompt for AWS credentials'
+    on 'c', 'chef', 'When passed to the \'init\' subcommand, prompt for Chef credentials'
+  end
 
-if @options.help?
-  puts @options
-  exit 0
+  if @options.help?
+    puts @options
+    exit 0
+  end
+else
+  @options = { :commands => ARGV[2..-1].join(' ') }
 end
 
 if command

@@ -26,8 +26,8 @@ $ bog personal					# Switch to another profile
 
 ### One-off commands 
 ```bash
-$ bog myclient exec aws s3 ls			# Exec command as myclient, then
-$ bog myclient exec knife client list		# switch back to previous profile 
+$ bog myclient exec aws s3 ls          # Exec command as myclient, then
+$ bog myclient exec knife client list  # switch back to previous profile 
 ...
 ```
 

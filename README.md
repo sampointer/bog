@@ -13,7 +13,7 @@ work with collections of dotfile configurations and to swap between those sets.
 
 ## Example
 ```bash
-$ bog myclient init --aws --chef	# Configure ~/.bog with stubs for AWS and Chef under profile 'myclient'
+$ bog myclient init --aws 	# Configure ~/.bog with a stub for AWS under profile 'myclient'
 Enter your Amazon Secrect Access Key:
 ...
 $ bog myclient					# Switch to profile 'myclient'
@@ -32,7 +32,7 @@ $ bog myclient exec knife client list  # switch back to previous profile
 ```
 
 ## How it works
-`bog init myclient --aws --chef` will create 
+`bog init myclient --aws` will create 
 
 ```
 .bog
@@ -40,8 +40,7 @@ $ bog myclient exec knife client list  # switch back to previous profile
 ├── plugins
 └── profiles
     └── myclient
-        ├── .aws
-        └── .chef
+        └── .aws
 ```
 If you passed a switch such as `--aws` then the correctly named configuration files will be present and populated. Otherwise you
 are free to include whatever you choose.

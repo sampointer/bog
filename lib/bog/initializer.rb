@@ -1,5 +1,4 @@
 require 'bog/initializer/aws'
-require 'bog/initializer/chef'
 
 module Bog
   class Initializer

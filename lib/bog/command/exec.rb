@@ -1,3 +1,5 @@
+require 'bog/profile'
+
 module Bog
   class Command
     class Exec 

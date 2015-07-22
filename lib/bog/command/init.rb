@@ -10,7 +10,6 @@ module Bog
         Dir.mkdir(profile_path) unless File.directory?(profile_path)
 
         Bog::Initializer::AWS.new(Bog::Profile.find(profile), options) if options.aws?
-        Bog::Initializer::Chef.new(Bog::Profile.find(profile), options) if options.chef?
 
       end
 

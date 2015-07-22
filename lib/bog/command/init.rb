@@ -1,4 +1,5 @@
 require 'bog/initializer'
+require 'fileutils'
 
 module Bog
   class Command
@@ -20,6 +21,11 @@ module Bog
         profiles = File.join(bog_root, 'profiles')
         Dir.mkdir(bog_root) unless File.exists?(bog_root)
         Dir.mkdir(profiles) unless File.exists?(profiles)
+        
+        # Drop the shell helpers in
+        spec = Gem::Specification.find_by_name("bog")
+        gem_root = spec.gem_dir
+        FileUtils.copy_file(File.join(gem_root, 'libexec/bog.sh'), File.join(bog_root, 'bog.sh'))
       end
     end
   end

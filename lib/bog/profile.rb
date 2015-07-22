@@ -23,7 +23,7 @@ module Bog
       if Dir.entries(File.expand_path('~/.bog/profiles')).include?(profile.to_s)
         return Bog::Profile.load(profile)
       else
-	raise Bog::Profile::Exception::ProfileNotFound
+	      raise Bog::Profile::Exception::ProfileNotFound
       end
     end
 
@@ -35,6 +35,15 @@ module Bog
     def make_current
       current_status_file = File.expand_path('~/.bog/current')
       symlink(profile_root, current_status_file,)
+    end
+
+    def make_default
+      puts "Making #{self.profile_name} default profile"
+      File.write(File.expand_path('~/.bog/default'), self.profile_name)
+    end
+
+    def self.current
+      Bog::Profile.find(File.basename(File.readlink(File.expand_path('~/.bog/current'))))
     end
 
     private

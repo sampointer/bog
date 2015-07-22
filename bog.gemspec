@@ -23,4 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.0"
 
   spec.add_dependency "slop", "~> 3.4"
+  spec.add_dependency "require_all", "~> 1.3"
 end

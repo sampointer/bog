@@ -12,6 +12,8 @@ You may have multiple clients, or may split your environments between EC2 accoun
 work with collections of dotfile configurations and to swap between those sets.
 
 ## Example
+The traditional form, where you manually switch profiles:
+
 ```bash
 $ bog myclient init --aws 	# Configure ~/.bog with a stub for AWS under profile 'myclient'
 Enter your Amazon Secrect Access Key:
@@ -22,6 +24,23 @@ $ aws s3 ls
 ...
 $ bog personal					# Switch to another profile
 ...
+$ bog                   # Show the current profile
+personal
+```
+With roaming profiles enabled:
+```bash
+$ bog personal default  # Set default profile
+$ source ~/.bog/bog.sh  # Source shell helpers
+$ cd ~/src/project
+$ echo "myclient" > .bog-profile
+$ bog                   # Profile set by dotfile
+myclient
+$ cd ..
+$ bog                   # Profile set from default
+personal                # without dotfile present
+$ bog someprofile
+$ bog                   # Setting profile ignored
+personal                # with roaming profiles
 ```
 
 ### One-off commands 
@@ -46,6 +65,17 @@ If you passed a switch such as `--aws` then the correctly named configuration fi
 are free to include whatever you choose.
 
 `bog` will never touch your `~/.aws` and similar directories. You will need to symlink these to `~/.bog/current/.aws` (as appropriate) in order to have bog work.
+
+### Roaming profiles
+By sourcing `~/.bog/bog.sh` into your shell environment and placing a file called `.bog-profile` into one or more directories you can take advantage of roaming profiles. In short, when `bog` detects such a file it'll automatically change your current profile to that given in the dotfile. This enables you to easily work with per-project profiles, for example.
+
+It does this by recursing up from the current directory until it either finds a `.bog-profile` file or fails and continues with the **default profile**. You should be aware of the implications therefore of nested directories and of the implications for concurrency when running commands under `bog` in multiple terminals.
+
+It also expects you to have a default profile configured for when a dotfile cannot be found. You can do this by executing `bog PROFILE default`.
+
+**Be aware that using roaming profiles is mutally exclusive to using `bog PROFILE` to set your profile. IT WILL BE IGNORED. Your current profile will be determined either from the presence of a dotfile or from your default.**
+
+You should be sure to source `~/.bog/bog.sh` **after** anything else that might hook into `$PROMPT_COMMAND`, such as chruby, rvm, or liquidprompt.
 
 ## Why another dotfile manager
 There are plenty out there. `bog` aims to fit a modern operational workflow and toolset.

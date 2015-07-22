@@ -2,8 +2,10 @@
 
 require 'bog'
 require 'slop'
+require 'require_all'
+require_rel '../lib/bog/command'
 
-profile = ARGV[0].downcase
+profile = ARGV[0].downcase if ARGV[0]
 command = ARGV[1].downcase if ARGV[1]
 
 unless command == 'exec' 
@@ -21,10 +23,18 @@ else
   @options = { :commands => ARGV[2..-1].join(' ') }
 end
 
+# With no arguments show the current profile name
+unless profile
+  Bog::Command::Show.execute
+  exit 0
+end
+
 if command
   case command
   when 'init'
     Object.const_get('Bog').const_get('Command').const_get(command.capitalize).execute(profile, @options)
+  when 'show'
+    Object.const_get('Bog').const_get('Command').const_get(command.capitalize).execute
   else
     begin
       Object.const_get('Bog').const_get('Command').const_get(command.capitalize).execute(Bog::Profile.find(profile.to_sym), @options)

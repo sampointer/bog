@@ -22,6 +22,8 @@ $ aws s3 ls
 ...
 $ bog personal					# Switch to another profile
 ...
+$ bog                   # Show the current profile
+personal
 ```
 
 ### One-off commands 

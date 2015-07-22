@@ -23,7 +23,7 @@ module Bog
       if Dir.entries(File.expand_path('~/.bog/profiles')).include?(profile.to_s)
         return Bog::Profile.load(profile)
       else
-	raise Bog::Profile::Exception::ProfileNotFound
+	      raise Bog::Profile::Exception::ProfileNotFound
       end
     end
 

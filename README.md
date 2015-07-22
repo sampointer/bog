@@ -69,7 +69,7 @@ are free to include whatever you choose.
 ### Roaming profiles
 By sourcing `~/.bog/bog.sh` into your shell environment and placing a file called `.bog-profile` into one or more directories you can take advantage of roaming profiles. In short, when `bog` detects such a file it'll automatically change your current profile to that given in the dotfile. This enables you to easily work with per-project profiles, for example.
 
-It does this by recursing up from the current directory until it either finds a `.bog-profile` file or fails and continues with the current profile. You should be aware of the implications therefore of nested directories and of the implications for concurrency when running commands under `bog` in multiple terminals.
+It does this by recursing up from the current directory until it either finds a `.bog-profile` file or fails and continues with the **default profile**. You should be aware of the implications therefore of nested directories and of the implications for concurrency when running commands under `bog` in multiple terminals.
 
 It also expects you to have a default profile configured for when a dotfile cannot be found. You can do this by executing `bog PROFILE default`.
 

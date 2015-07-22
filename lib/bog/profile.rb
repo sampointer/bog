@@ -38,7 +38,8 @@ module Bog
     end
 
     def make_default
-      File.open('~/.bog/default', 'w') { |f| f.write(self.profile_name) }
+      puts "Making #{self.profile_name} default profile"
+      File.write('~/.bog/default', self.profile_name)
     end
 
     def self.current

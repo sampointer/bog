@@ -47,6 +47,13 @@ are free to include whatever you choose.
 
 `bog` will never touch your `~/.aws` and similar directories. You will need to symlink these to `~/.bog/current/.aws` (as appropriate) in order to have bog work.
 
+### Roaming profiles
+By sourcing `~/.bog/bog.sh` into your shell environment and placing a file called `.bog-profile` into one or more directories you can take advantage of roaming profiles. In short, when `bog` detects such a file it'll automatically change your current profile to that given in the dotfile. This enables you to easily work with per-project profiles, for example.
+
+It does this by recursing up from the current directory until it either finds a `.bog-profile` file or fails and continues with the current profile. You should be aware of the implications therefore of nested directories and of the implications for concurrency when running commands under `bog` in multiple terminals.
+
+You should be sure to source `~/.bog/bog.sh` **after** anything else that might hook into `$PROMPT_COMMAND`, such as chruby, rvm, or liquidprompt.
+
 ## Why another dotfile manager
 There are plenty out there. `bog` aims to fit a modern operational workflow and toolset.
 

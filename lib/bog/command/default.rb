@@ -4,7 +4,7 @@ module Bog
   class Command
     class Default
       def self.execute(profile,options={})
-        Bog::Profile.current.make_default
+        Bog::Profile.find(profile).make_default
       end
 
     end

@@ -37,8 +37,8 @@ module Bog
       symlink(profile_root, current_status_file,)
     end
 
-    def make_default(profile)
-      File.open('~/.bog/default').write(profile.profile_name)
+    def make_default
+      File.open('~/.bog/default', 'w').write(self.profile_name)
     end
 
     def self.current

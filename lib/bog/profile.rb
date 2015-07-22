@@ -39,7 +39,7 @@ module Bog
 
     def make_default
       puts "Making #{self.profile_name} default profile"
-      File.write('~/.bog/default', self.profile_name)
+      File.write(File.expand_path('~/.bog/default'), self.profile_name)
     end
 
     def self.current

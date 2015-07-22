@@ -37,6 +37,10 @@ module Bog
       symlink(profile_root, current_status_file,)
     end
 
+    def make_default(profile)
+      File.open('~/.bog/default').write(profile.profile_name)
+    end
+
     def self.current
       Bog::Profile.find(File.basename(File.readlink(File.expand_path('~/.bog/current'))))
     end

@@ -33,8 +33,6 @@ if command
   case command
   when 'init'
     Object.const_get('Bog').const_get('Command').const_get(command.capitalize).execute(profile, @options)
-  when 'show'
-    Object.const_get('Bog').const_get('Command').const_get(command.capitalize).execute
   else
     begin
       Object.const_get('Bog').const_get('Command').const_get(command.capitalize).execute(Bog::Profile.find(profile.to_sym), @options)

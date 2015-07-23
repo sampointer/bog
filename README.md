@@ -87,6 +87,7 @@ The gem and its dependencies are tested against the following ruby versions:
 * 1.9.3
 * 2.0.0
 * 2.1.0
+* 2.2.2
 
 [1]: http://www.opsunit.com
 [99]: http://opsunit.com/assets/images/opsunit-logo-large.png

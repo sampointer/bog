@@ -62,7 +62,7 @@ $ bog myclient exec knife client list  # switch back to previous profile
 ```
 `bog` will never touch your `~/.aws` and similar directories. You will need to:
 
-* populate `~/.bog/profiles/myclient/ with dotfiles and directories for that profile.
+* populate `~/.bog/profiles/myclient/` with dotfiles and directories for that profile.
 * symlink the directory the tool would look for:  `ln -s ~/.bog/current/.aws ~/.aws`
 
 When profiles are switched the `~/.bog/current` symlink is repointed.

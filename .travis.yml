@@ -7,7 +7,7 @@ rvm:
 deploy:
   provider: rubygems
   api_key:
-    secure: fAI2GlU0tCtZVxA80nUjC/1PriviYXb5F3a58wlbpgy0NTWxGgQxvYJOI3pvYCqIRI9CnqP/S3k642n40DomgBThAgi42vkCYKGG50dfaFKzgwu1xMWIGs3DXfsQD2nh7V5SNKncOpy2bo6GRdhPLkroQIy9XwjmAcPsEZ50jbc=
+    secure: McztX6P5ft3udj4P3S0mj2rA6rBPR75E+G+UQIO7P/Ay3Hy3zVoYMUK7lYWGnkdz3wRqdGSzRZ+leKnyg9mfOVWds3zT2Baoa/PLZzNis6JJk0HgcX8HsUZMnM9w24bCPVH/17drQhiy4iNXVDONv4PzakGdGgLmVl9q8vqU++o=
   gem: bog
   on:
     tags: true

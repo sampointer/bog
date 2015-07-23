@@ -51,7 +51,7 @@ $ bog myclient exec knife client list  # switch back to previous profile
 ```
 
 ## How it works
-`bog init myclient --aws` will create 
+`bog init myclient` will create 
 
 ```
 .bog
@@ -59,12 +59,13 @@ $ bog myclient exec knife client list  # switch back to previous profile
 ├── plugins
 └── profiles
     └── myclient
-        └── .aws
 ```
-If you passed a switch such as `--aws` then the correctly named configuration files will be present and populated. Otherwise you
-are free to include whatever you choose.
+`bog` will never touch your `~/.aws` and similar directories. You will need to:
 
-`bog` will never touch your `~/.aws` and similar directories. You will need to symlink these to `~/.bog/current/.aws` (as appropriate) in order to have bog work.
+* populate `~/.bog/profiles/myclient/ with dotfiles and directories for that profile.
+* symlink the directory the tool would look for:  `ln -s ~/.bog/current/.aws ~/.aws`
+
+When profiles are switched the `~/.bog/current` symlink is repointed.
 
 ### Roaming profiles
 By sourcing `~/.bog/bog.sh` into your shell environment and placing a file called `.bog-profile` into one or more directories you can take advantage of roaming profiles. In short, when `bog` detects such a file it'll automatically change your current profile to that given in the dotfile. This enables you to easily work with per-project profiles, for example.

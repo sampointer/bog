@@ -13,10 +13,16 @@ unless command == 'exec'
     banner 'Usage: bog PROFILE [COMMAND] [options]'
     on 'h', 'help', 'Display this message'
     on 'a', 'aws', 'When passed to the \'init\' subcommand, prompt for AWS credentials'
+    on 'v', 'version', 'Display version'
   end
 
   if @options.help?
     puts @options
+    exit 0
+  end
+
+  if @options.version?
+    puts Bog::VERSION
     exit 0
   end
 else

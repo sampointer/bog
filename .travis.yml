@@ -7,11 +7,11 @@ rvm:
 - 2.2.2
 deploy:
   provider: rubygems
-  api_key:
-    secure: McztX6P5ft3udj4P3S0mj2rA6rBPR75E+G+UQIO7P/Ay3Hy3zVoYMUK7lYWGnkdz3wRqdGSzRZ+leKnyg9mfOVWds3zT2Baoa/PLZzNis6JJk0HgcX8HsUZMnM9w24bCPVH/17drQhiy4iNXVDONv4PzakGdGgLmVl9q8vqU++o=
   gem: bog
   on:
     tags: true
     all_branches: true
     repo: opsunit/bog
     ruby: 1.9.3
+  api_key:
+    secure: u8rdkyxcXSPyzsCmUO69HaDNsziOQ/Y+6E0hZwj4NKwZdu/BfP6ictr3gpLfh1Nw509PasB1mEWxpeBWOcZDInLzNfJOj9xvXk2UxxdRqnzNPfsvEQsvoYwZETVTrJqMKoHuIQH5SGcz++Ko3ISrg8fbVGnD24vmjNI7DXmR37Q=

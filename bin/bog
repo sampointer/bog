@@ -8,10 +8,11 @@ require_rel '../lib/bog/command'
 profile = ARGV[0].downcase if ARGV[0]
 command = ARGV[1].downcase if ARGV[1]
 
-unless command == 'exec' 
+unless command == 'exec'
   @options = Slop.parse(strict: true) do
     banner 'Usage: bog PROFILE [COMMAND] [options]'
     on 'h', 'help', 'Display this message'
+    on 'l', 'list', 'List existing profiles, * indicates current profile'
     on 'a', 'aws', 'When passed to the \'init\' subcommand, prompt for AWS credentials'
     on 'v', 'version', 'Display version'
   end
@@ -25,6 +26,12 @@ unless command == 'exec'
     puts Bog::VERSION
     exit 0
   end
+
+  if @options.list?
+    Bog::Command::List.execute
+    exit 0
+  end
+
 else
   @options = { :commands => ARGV[2..-1].join(' ') }
 end

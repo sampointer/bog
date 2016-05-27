@@ -13,18 +13,19 @@ work with collections of dotfile configurations and to swap between those sets.
 The traditional form, where you manually switch profiles:
 
 ```bash
-$ bog myclient init --aws 	# Configure ~/.bog with a stub for AWS under profile 'myclient'
+$ bog myclient init --aws  # Configure ~/.bog with a stub for AWS under profile 'myclient'
 Enter your Amazon Secret Access Key:
 ...
-$ bog myclient					# Switch to profile 'myclient'
+$ bog myclient             # Switch to profile 'myclient'
 $ knife client list
 $ aws s3 ls
 ...
-$ bog personal					# Switch to another profile
+$ bog personal             # Switch to another profile
 ...
-$ bog                   # Show the current profile
+$ bog                      # Show the current profile
 personal
-$ bog -l                # List available profiles - * indicates current profile
+...
+$ bog -l                   # List available profiles - * indicates current profile
 myclient
 personal*
 ```
@@ -56,10 +57,12 @@ $ bog myclient exec knife client list  # switch back to previous profile
 
 ```
 .bog
-├── current -> profiles/myclient/
-├── plugins
+├── bog.sh
+├── current -> /home/me/.bog/profiles/myclient
+├── default
 └── profiles
     └── myclient
+
 ```
 `bog` will never touch your `~/.aws` and similar directories. You will need to:
 
@@ -87,8 +90,9 @@ There are plenty out there. `bog` aims to fit a modern operational workflow and 
 The gem and its dependencies are tested against the following ruby versions:
 
 * 1.9.3
-* 2.0.0
-* 2.1.0
-* 2.2.2
+* 2.0
+* 2.1
+* 2.2
+* 2.3.1
 
 [1]: http://www.opsunit.com

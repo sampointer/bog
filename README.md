@@ -16,7 +16,7 @@ The traditional form, where you manually switch profiles:
 
 ```bash
 $ bog myclient init --aws 	# Configure ~/.bog with a stub for AWS under profile 'myclient'
-Enter your Amazon Secrect Access Key:
+Enter your Amazon Secret Access Key:
 ...
 $ bog myclient					# Switch to profile 'myclient'
 $ knife client list
@@ -26,6 +26,9 @@ $ bog personal					# Switch to another profile
 ...
 $ bog                   # Show the current profile
 personal
+$ bog -l                # List available profiles - * indicates current profile
+myclient
+personal*
 ```
 With roaming profiles enabled:
 ```bash
@@ -43,15 +46,15 @@ $ bog                   # Setting profile ignored
 personal                # with roaming profiles
 ```
 
-### One-off commands 
+### One-off commands
 ```bash
 $ bog myclient exec aws s3 ls          # Exec command as myclient, then
-$ bog myclient exec knife client list  # switch back to previous profile 
+$ bog myclient exec knife client list  # switch back to previous profile
 ...
 ```
 
 ## How it works
-`bog init myclient` will create 
+`bog init myclient` will create
 
 ```
 .bog

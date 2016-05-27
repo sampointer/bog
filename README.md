@@ -1,4 +1,4 @@
-# bog [![Build Status](https://travis-ci.org/opsunit/bog.svg?branch=master)](https://travis-ci.org/opsunit/bog)[![Gem Version](https://badge.fury.io/rb/bog.svg)](http://badge.fury.io/rb/bog) ![](http://ruby-gem-downloads-badge.herokuapp.com/bog)
+# bog [![Build Status](https://travis-ci.org/opsunit/bog.svg?branch=master)](https://travis-ci.org/opsunit/bog)[![Gem Version](https://badge.fury.io/rb/bog.svg)](http://badge.fury.io/rb/bog) ![](http://ruby-gem-downloads-badge.herokuapp.com/bog?type=total)
 
 ![OpsUnit Logo][99]
 

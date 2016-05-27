@@ -9,7 +9,7 @@ module Bog
         profiles.collect! { |p| p.split('/').last }
         profiles.select { |p|
           p == Bog::Profile.current.profile_name }[0] << "*"
-        puts profiles
+        puts profiles.sort
       end
     end
   end

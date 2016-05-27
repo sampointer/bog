@@ -1,4 +1,4 @@
-# bog [![Build Status](https://travis-ci.org/opsunit/bog.svg?branch=master)](https://travis-ci.org/opsunit/bog) [![Gem Version](https://badge.fury.io/rb/bog.svg)](http://badge.fury.io/rb/bog) ![](http://ruby-gem-downloads-badge.herokuapp.com/bog?type=total)
+# bog [![Build Status](https://travis-ci.org/opsunit/bog.svg?branch=master)](https://travis-ci.org/opsunit/bog) [![Gem Version](https://badge.fury.io/rb/bog.svg)](http://badge.fury.io/rb/bog) ![](http://ruby-gem-downloads-badge.herokuapp.com/bog?type=total) <img align="right" width="370" height="80" src="http://opsunit.com/assets/images/opsunit-logo-large.png" alt="opsunit" />
 
 ![OpsUnit Logo][99]
 
@@ -94,4 +94,3 @@ The gem and its dependencies are tested against the following ruby versions:
 * 2.2.2
 
 [1]: http://www.opsunit.com
-[99]: http://opsunit.com/assets/images/opsunit-logo-large.png
